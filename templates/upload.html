@@ -1,34 +1,37 @@
 <!doctype html>
 <head>
-      <title>AI Digital Signage</title>
+    <title>AI Digital Signage</title>
 
-      <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  </head>
-<h2>Select a file to upload</h2>
+</head>
+<h2 class="text-primary">Select a file to upload</h2>
 <p>
-	{% with messages = get_flashed_messages() %}
-	  {% if messages %}
-		<ul>
-		{% for message in messages %}
-		  <li>{{ message }}</li>
-		{% endfor %}
-		</ul>
-	  {% endif %}
-	{% endwith %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
 </p>
 {% if filename %}
-	<div>
-		<img src="{{ url_for('display_image', filename=filename) }}">
-	</div>
+<div>
+    <img src="{{ url_for('display_image', filename=filename) }}">
+</div>
 {% endif %}
 <form method="post" action="/" enctype="multipart/form-data">
     <dl>
-		<p>
-			<input type="file" name="file" autocomplete="off" required>
-		</p>
+        <p>
+            <input type="file" name="file" autocomplete="off" required>
+        </p>
     </dl>
     <p>
-		<input type="submit" value="Submit">
-	</p>
+        <input type="submit" value="Submit">
+    </p>
+
+    <!-- Bootstrap Javascripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </form>
