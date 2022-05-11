@@ -13,37 +13,43 @@
 </head>
 <body>
 
-<p>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-<ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
-</p>
-{% if filename %}
 <div>
-    <img src="{{ url_for('display_image', filename=filename) }}">
-</div>
-{% endif %}
-<div >
-<form method="post" action="/" enctype="multipart/form-data" class="w-75 p-3 position-absolute top-50 start-50 translate-middle">
-<h2 class="text-primary">Select a file to upload!</h2>
+    <form method="post" action="/" enctype="multipart/form-data"
+          class="w-75 p-3 position-absolute top-50 start-50 translate-middle">
+        <h2 class="text-primary">Select a file to upload!</h2>
 
-    <div class="form-group" class="mx-auto">
-        <label for="uploadfile">Choose Image to Upload</label>
-        <input type="file" class="form-control" id="uploadfile" name="file" autocomplete="off" required>
-    </div>
-    <br>
-    <div class="d-grid gap-2 mx-auto">
-    <button type="submit" class="btn btn-primary ">Submit</button>
-    </div>
+        <div class="form-group" class="mx-auto">
+            <label for="uploadfile">Choose Image to Upload</label>
+            <input type="file" class="form-control" id="uploadfile" name="file" autocomplete="off" required>
+        </div>
+        <br>
+        <div class="d-grid gap-2 mx-auto">
+            <button type="submit" class="btn btn-primary ">Submit</button>
+        </div>
+        <br>
+        <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        </p>
+        <br>
+
+        {% if filename %}
+        <div class="d-grid gap-2 mx-auto position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle-x">
+                <img src="{{ url_for('display_image', filename=filename) }}">
+            </div>
+        </div>
+        {% endif %}
 
 
-</form>
+    </form>
 </div>
 <!-- Optional JavaScript; choose one of the two! -->
 
