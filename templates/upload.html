@@ -42,8 +42,11 @@
 
         {% if filename %}
         <div class="d-grid gap-2 mx-auto position-relative">
-            <div class="position-absolute top-0 start-50 translate-middle-x">
-                <img src="{{ url_for('display_image', filename=filename) }}">
+            <div style="height:42px;width:42px" class="position-absolute top-0 start-50 translate-middle-x" >
+                <div >
+                    <img src="{{ url_for('display_image', filename=filename) }}">
+                </div>
+
             </div>
         </div>
         {% endif %}
